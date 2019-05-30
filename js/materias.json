@@ -1,0 +1,128 @@
+[
+    {
+        "codigo": 101,
+        "nombre": "Calculo I",
+        "semestre": 1,
+        "creditos": 4
+    },
+    {
+        "codigo": 102,
+        "nombre": "Introduccion a la Informatica",
+        "semestre": 1,
+        "creditos": 3
+    },
+    {
+        "codigo": 103,
+        "nombre": "Lab. Introduccion a la Informatica",
+        "semestre": 1,
+        "creditos": 1
+    },
+    {
+        "codigo": 104,
+        "nombre": "Calculo II",
+        "semestre": 2,
+        "creditos": 3
+    },
+    {
+        "codigo": 105,
+        "nombre": "Programacion Orientada a Objetos",
+        "semestre": 2,
+        "creditos": 3
+    },
+    {
+        "codigo": 106,
+        "nombre": "Lab. de Programación Orientada a Objetos",
+        "semestre": 2,
+        "creditos": 1
+    },
+    {
+        "codigo": 107,
+        "nombre": "Calculo III",
+        "semestre": 3,
+        "creditos": 4
+    },
+    {
+        "codigo": 108,
+        "nombre": "Estructuras de Datos I",
+        "semestre": 3,
+        "creditos": 3
+    },
+    {
+        "codigo": 109,
+        "nombre": "Lab de Estructuras de Datos I",
+        "semestre": 3,
+        "creditos": 1
+    },
+    {
+        "codigo": 110,
+        "nombre": "Bases de Datos I",
+        "semestre": 4,
+        "creditos": 3
+    },
+    {
+        "codigo": 111,
+        "nombre": "Lab de Bases de Datos I",
+        "semestre": 4,
+        "creditos": 1
+    },
+    {
+        "codigo": 112,
+        "nombre": "Estructura de Datos II",
+        "semestre": 4,
+        "creditos": 3
+    },
+    {
+        "codigo": 113,
+        "nombre": "Lab. de Estructuras de Datos II",
+        "semestre": 4,
+        "creditos": 1
+    },
+    {
+        "codigo": 114,
+        "nombre": "Ingeniería de Software I",
+        "semestre": 5,
+        "creditos": 3
+    },
+    {
+        "codigo": 115,
+        "nombre": "Lab. de Ingeniería de Software I",
+        "semestre": 5,
+        "creditos": 1
+    },
+    {
+        "codigo": 116,
+        "nombre": "Teoría de la Computación",
+        "semestre": 5,
+        "creditos": 3
+    },
+    {
+        "codigo": 117,
+        "nombre": "Arquitectura Computacional",
+        "semestre": 5,
+        "creditos": 4
+    },
+    {
+        "codigo": 118,
+        "nombre": "Ingeniería de Software II",
+        "semestre": 6,
+        "creditos": 3
+    },
+    {
+        "codigo": 119,
+        "nombre": "Lab. de Ingeniería de Software II",
+        "semestre": 6,
+        "creditos": 1
+    },
+    {
+        "codigo": 119,
+        "nombre": "Sistemas Operativos",
+        "semestre": 6,
+        "creditos": 3
+    },
+    {
+        "codigo": 120,
+        "nombre": "Lab. Sistemas Operativos",
+        "semestre": 6,
+        "creditos": 1
+    }
+]
