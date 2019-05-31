@@ -4,7 +4,7 @@ include_once __DIR__.'/estMateria.php';
 function nuevo_estudiante($codigo){
     $estMaterias = array();
     $counter = 0;
-    for ($i=101; $i < 121 ; $i++) { 
+    for ($i=101; $i <= 121 ; $i++) { 
         $estMaterias[$counter] = new estMateria($i,false);
         $counter += 1;
     }
@@ -13,5 +13,4 @@ function nuevo_estudiante($codigo){
     fwrite($fp,$materias_json);
     fclose($fp);
 }
-
 ?>

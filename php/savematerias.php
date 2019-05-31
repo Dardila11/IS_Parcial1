@@ -22,8 +22,8 @@ $materias[15] = new Materia(116,"Teoría de la Computación",5,3);
 $materias[16] = new Materia(117,"Arquitectura Computacional",5,4);
 $materias[17] = new Materia(118,"Ingeniería de Software II",6,3);
 $materias[18] = new Materia(119,"Lab. de Ingeniería de Software II",6,1);
-$materias[19] = new Materia(119,"Sistemas Operativos",6,3); 
-$materias[20] = new Materia(120,"Lab. Sistemas Operativos",6,1); 
+$materias[19] = new Materia(120,"Sistemas Operativos",6,3); 
+$materias[20] = new Materia(121,"Lab. Sistemas Operativos",6,1); 
 
 $materias_json = json_encode($materias, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 $fp = fopen('js/materias.json','w');
