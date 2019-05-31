@@ -1,18 +1,8 @@
 <?php
+include_once '../php/materia.php';
+include_once '../php/saveest_materias.php';
 
-include 'php/materia.php';
-include 'php/saveest_materias.php';
-$est_codigo = 10460232;
-$filename = 'js/'.$est_codigo.'.json';
-if(file_exists($filename)){
-    echo "existe";
-    /* envia estado de las materias del estudiante */
-    
-}else{
-    echo "no existe";
-    /* crea nuevo fichero con el codigo del estudiante */
-    nuevo_estudiante($est_codigo);
-}
+#$est_codigo = 10460232;
 
 if(isset($_GET["codigo"])){
     $est_codigo = $_GET['codigo'];
@@ -21,8 +11,12 @@ if(isset($_GET["codigo"])){
         echo "existe";
         
     }else{
-        echo "no existe";  
+        /* no existe. le crea datos de estado 
+        de materias al nuevo estudiante */
+        nuevo_estudiante($est_codigo);  
     }
     
 }
+
+
 ?>

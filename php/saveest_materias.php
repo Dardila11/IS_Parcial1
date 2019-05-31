@@ -1,5 +1,5 @@
 <?php
-include 'php/estMateria.php';
+include_once __DIR__.'/estMateria.php';
 
 function nuevo_estudiante($codigo){
     $estMaterias = array();
@@ -9,7 +9,7 @@ function nuevo_estudiante($codigo){
         $counter += 1;
     }
     $materias_json = json_encode($estMaterias, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-    $fp = fopen('js/'.$codigo.'.json','w');
+    $fp = fopen('../js/'.$codigo.'.json','w');
     fwrite($fp,$materias_json);
     fclose($fp);
 }
