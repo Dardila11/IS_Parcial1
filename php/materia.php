@@ -12,7 +12,7 @@
            $this->creditos = $creditos;
        }
 
-       public function getCodigo(){
+    public function getCodigo(){
         return $this->codigo;
     }
     
