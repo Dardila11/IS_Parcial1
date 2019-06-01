@@ -5,19 +5,19 @@
     },
     {
         "codigo_materia": 102,
-        "estado": false
+        "estado": true
     },
     {
         "codigo_materia": 103,
-        "estado": false
+        "estado": true
     },
     {
         "codigo_materia": 104,
-        "estado": true
+        "estado": false
     },
     {
         "codigo_materia": 105,
-        "estado": true
+        "estado": false
     },
     {
         "codigo_materia": 106,
@@ -29,7 +29,7 @@
     },
     {
         "codigo_materia": 108,
-        "estado": true
+        "estado": false
     },
     {
         "codigo_materia": 109,
@@ -53,11 +53,11 @@
     },
     {
         "codigo_materia": 114,
-        "estado": false
+        "estado": true
     },
     {
         "codigo_materia": 115,
-        "estado": true
+        "estado": false
     },
     {
         "codigo_materia": 116,
@@ -65,18 +65,22 @@
     },
     {
         "codigo_materia": 117,
-        "estado": true
-    },
-    {
-        "codigo_materia": 118,
         "estado": false
     },
     {
-        "codigo_materia": 119,
+        "codigo_materia": 118,
         "estado": true
     },
     {
+        "codigo_materia": 119,
+        "estado": false
+    },
+    {
         "codigo_materia": 120,
+        "estado": false
+    },
+    {
+        "codigo_materia": 121,
         "estado": false
     }
 ]

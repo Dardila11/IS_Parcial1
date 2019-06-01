@@ -5,11 +5,11 @@
     },
     {
         "codigo_materia": 102,
-        "estado": false
+        "estado": true
     },
     {
         "codigo_materia": 103,
-        "estado": false
+        "estado": true
     },
     {
         "codigo_materia": 104,
@@ -41,7 +41,7 @@
     },
     {
         "codigo_materia": 111,
-        "estado": true
+        "estado": false
     },
     {
         "codigo_materia": 112,
@@ -53,7 +53,7 @@
     },
     {
         "codigo_materia": 114,
-        "estado": false
+        "estado": true
     },
     {
         "codigo_materia": 115,
@@ -61,26 +61,26 @@
     },
     {
         "codigo_materia": 116,
-        "estado": false
+        "estado": true
     },
     {
         "codigo_materia": 117,
-        "estado": false
+        "estado": true
     },
     {
         "codigo_materia": 118,
-        "estado": false
+        "estado": true
     },
     {
         "codigo_materia": 119,
-        "estado": false
+        "estado": true
     },
     {
         "codigo_materia": 120,
-        "estado": false
+        "estado": true
     },
     {
         "codigo_materia": 121,
-        "estado": false
+        "estado": true
     }
 ]

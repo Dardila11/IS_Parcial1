@@ -1,16 +1,42 @@
 function infoMaterias(){
     var codigo = document.getElementById("codigo").value;
-    $(".txt_codigo").load("php/getMaterias.php?codigo="+codigo);
-    stateButton(true);
-    buscaMaterias(codigo);
+    if(validacion(codigo)){
+        $(".txt_codigo").load("php/getMaterias.php?codigo="+codigo);
+        stateButton(true);
+        $('#info_data').show();
+        buscaMaterias(codigo);
+    }
+    else{
+        alert("digita tu codigo");
+    }
 }
 
 function stateButton(state){
     if(state == true){
         $('#btn_consultar').prop('disabled', true);
         $('#btn_consultar').css('background', 'gray');
-        // activar botton realizar nueva busqueda
+        $('#btn_nuevaBusqueda').show();
+        $('.guia').show();
+
     }
+}
+
+function validacion(codigo){
+    var valido = false;
+    if(codigo != ""){
+        valido = true;
+    }
+    return valido;
+}
+
+
+
+window.onload = function load(){    
+    /* escondemos el boton de 'nueva busqueda' */
+    $('#btn_nuevaBusqueda').hide();
+    $('#info_data').hide();
+    $('.guia').hide();
+
 }
 
 function buscaMaterias(codigo){
@@ -19,49 +45,42 @@ function buscaMaterias(codigo){
         for (let i = 0; i < data.length; i++) {
             var materias = data[i];
             var datos_materia = Object.values(materias)
-            //console.log(materias)
             semestre = datos_materia[2];
             switch(semestre){
                 case 1:
-                    organizaMaterias(datos_materia);
+                organizaMaterias(datos_materia);
                 break;
                 case 2:
-                    organizaMaterias(datos_materia);
+                organizaMaterias(datos_materia);
                 break;
                 case 3:
-                    organizaMaterias(datos_materia);
+                organizaMaterias(datos_materia);
                 break;
                 case 4:
-                    organizaMaterias(datos_materia);
+                organizaMaterias(datos_materia);
                 break;
                 case 5:
-                    organizaMaterias(datos_materia);
+                organizaMaterias(datos_materia);
                 break;
                 case 6:
-                    organizaMaterias(datos_materia);
+                organizaMaterias(datos_materia);
                 break;
                 
             }
         }  
-        // borramos el primer div con id 'aclonar'
+        /* borramos el primer div con id 'aclonar' */
         var elem = document.getElementById("aclonar");
         elem.parentNode.removeChild(elem);   
     });
-
+    
     jQuery.getJSON("js/"+codigo+".json", function(estadoMateria){
         for (let i = 0; i < estadoMateria.length; i++) {
             var estado = estadoMateria[i];
-            var info_estado = Object.entries(estado);
-            var idMat = 0;
-            for(const [key,value] of info_estado){
-                if(key == "codigo_materia"){
-                    idMat = value;
-                }
-                if(key == "estado"){
-                    if(value == true){
-                        document.getElementById("materia_"+idMat).style.backgroundColor = 'gray';  
-                    }
-                }
+            info_estado = Object.values(estado);
+
+            if(info_estado[1] == true){
+                console.log(info_estado[1]);
+                document.getElementById("materia_"+info_estado[0]).style.backgroundColor = 'gray';
             }
         }
     });
@@ -72,7 +91,7 @@ function organizaMaterias(datos_materia){
     var clone = el.cloneNode(false);
     clone.id = "materia_"+datos_materia[0];
     clone.addEventListener('click', cambiaEstado); 
-
+    
     var materia = document.createElement("p");
     var m =  document.createTextNode(datos_materia[1]);
     materia.appendChild(m);
@@ -82,9 +101,13 @@ function organizaMaterias(datos_materia){
     var c = document.createTextNode(datos_materia[3]);
     credito.appendChild(c);
     credito.id = "creditos"; 
+
+    var star = document.querySelector('.star_aclonar');
+    var cloneStar = star.cloneNode(true);
     
     clone.appendChild(materia);
     clone.appendChild(credito);
+    clone.appendChild(cloneStar)
     document.getElementById("semestre_"+datos_materia[2]).appendChild(clone);
     
 }
@@ -95,21 +118,20 @@ function cambiaEstado(){
     var codigo = document.getElementById("codigo").value;
     if(this.style.backgroundColor == 'gray'){
         this.style.backgroundColor = '#43A047';
-        /* actualizamos el servidor */
         estado = false;
     }else{
         this.style.backgroundColor = 'gray';
         estado = true; 
     }
     var datos = {materia: idMateria, code: codigo, state: estado};
-    // enviamos la actualizacion al servidor
+    /* enviamos la actualizacion al servidor */
     $.ajax({
         type: "POST",   
         contentType: "application/x-www-form-urlencoded; charset=UTF-8",
         url: "php/updateMaterias.php",
         data: {myData:datos},
         success: function (result) {
-             console.log(result);
+            console.log(result);
         }
-   });
+    });
 }
