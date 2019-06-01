@@ -1,17 +1,17 @@
 function getInfo(){
     var codigo = document.getElementById("codigo").value;
-    $("#res").load("php/getMaterias.php?codigo="+codigo);
+    $(".estCodigo").load("php/getMaterias.php?codigo="+codigo);
     getAllMaterias(codigo);
 }
 
 function getAllMaterias(codigo){
-    /* TODO: verificar que no haya nuevas materias agregadas. actualiza el json */
     var idMaterias = [];
     
     jQuery.getJSON("js/materias.json", function(data){
         var counter = 1;
         for (let i = 0; i < data.length; i++) {
             var materias = data[i]
+            //console.log(materias)
             var datos_materia = Object.entries(materias)
             var id = 0;
             for(const [key,value] of datos_materia){
@@ -51,7 +51,42 @@ function getAllMaterias(codigo){
 }
 
 function enviaDatos(){
-    var id = event.target.id;
-    id = id.substring(8, 11);
-    alert(id);
+    /* obtiene id de la materia */
+
+    var idMateria = event.target.id;
+    idMateria = idMateria.substring(8, 11);
+    /* obtiene el id del estudiante */
+    var idEstudiante = document.getElementById("codigo").value;
+    var estado = false;
+    
+    /* si el color del elemento es morado: el estado = true */
+    var elem = document.getElementById("#"+event.target.id);
+    
+    if(this.style.color == 'purple'){
+        this.style.color = 'black';
+        /* actualizamos el servidor */
+        estado = false;
+        console.log(estado)
+    }else{
+        this.style.color = 'purple';
+        estado = true; 
+        console.log(estado)
+    }
+    var myData = {'idEst': idEstudiante,'idMat': idMateria,'state': estado};
+    var myDataString = JSON.stringify(myData);
+    console.log(myDataString);
+
+    $.ajax({
+        //contentType: "application/json", // php://input
+        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+        dataType : "POST",
+        method: "GET",
+        url: "php/updateMaterias.php",
+        data: myDataString,
+        success: function(response) {
+            alert(response);
+        }
+    });
+    
 }
+

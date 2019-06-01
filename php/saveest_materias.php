@@ -13,4 +13,14 @@ function nuevo_estudiante($codigo){
     fwrite($fp,$materias_json);
     fclose($fp);
 }
+
+function update_estudiante($codEstudiante,$idMateria,$estadoMateria){
+    // abrimos el archivo del estudiante
+    $fp = fopen('../js/'.$codEstudiante.'.json','w');
+    // editamos el id de la materia
+    // le agregamos el nuevo estado
+    // cerramos
+    
+
+}
 ?>
