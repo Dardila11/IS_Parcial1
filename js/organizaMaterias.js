@@ -28,128 +28,49 @@ function buscaMaterias(){
             semestre = datos_materia[2];
             switch(semestre){
                 case 1:
-                var el = document.querySelector('.materias');
-                var clone = el.cloneNode(false);
-                clone.id = "materia_"+datos_materia[0]; 
-                
-                var materia = document.createElement("p");
-                var m =  document.createTextNode(datos_materia[1]);
-                materia.appendChild(m);
-                materia.id = "materia";
-                
-                var credito = document.createElement("p");
-                var c = document.createTextNode(datos_materia[3]);
-                credito.appendChild(c);
-                credito.id = "creditos"; 
-                
-                clone.appendChild(materia);
-                clone.appendChild(credito);
-                document.getElementById("semestre_"+datos_materia[2]).appendChild(clone);
-                
+                    organizaMaterias(datos_materia);
                 break;
                 case 2:
-                var el = document.querySelector('.materias');
-                var clone = el.cloneNode(false);
-                clone.id = "materia_"+datos_materia[0]; 
-                
-                var materia = document.createElement("p");
-                var m =  document.createTextNode(datos_materia[1]);
-                materia.appendChild(m);
-                materia.id = "materia";
-                
-                var credito = document.createElement("p");
-                var c = document.createTextNode(datos_materia[3]);
-                credito.appendChild(c);
-                credito.id = "creditos"; 
-                
-                clone.appendChild(materia);
-                clone.appendChild(credito);
-                document.getElementById("semestre_"+datos_materia[2]).appendChild(clone);
+                    organizaMaterias(datos_materia);
                 break;
                 case 3:
-                var el = document.querySelector('.materias');
-                var clone = el.cloneNode(false);
-                clone.id = "materia_"+datos_materia[0]; 
-                
-                var materia = document.createElement("p");
-                var m =  document.createTextNode(datos_materia[1]);
-                materia.appendChild(m);
-                materia.id = "materia";
-                
-                var credito = document.createElement("p");
-                var c = document.createTextNode(datos_materia[3]);
-                credito.appendChild(c);
-                credito.id = "creditos"; 
-                
-                clone.appendChild(materia);
-                clone.appendChild(credito);
-                document.getElementById("semestre_"+datos_materia[2]).appendChild(clone);
+                    organizaMaterias(datos_materia);
                 break;
                 case 4:
-                var el = document.querySelector('.materias');
-                var clone = el.cloneNode(false);
-                clone.id = "materia_"+datos_materia[0]; 
-                
-                var materia = document.createElement("p");
-                var m =  document.createTextNode(datos_materia[1]);
-                materia.appendChild(m);
-                materia.id = "materia";
-                
-                var credito = document.createElement("p");
-                var c = document.createTextNode(datos_materia[3]);
-                credito.appendChild(c);
-                credito.id = "creditos"; 
-                
-                clone.appendChild(materia);
-                clone.appendChild(credito);
-                document.getElementById("semestre_"+datos_materia[2]).appendChild(clone);
+                    organizaMaterias(datos_materia);
                 break;
                 case 5:
-                var el = document.querySelector('.materias');
-                var clone = el.cloneNode(false);
-                clone.id = "materia_"+datos_materia[0]; 
-                
-                var materia = document.createElement("p");
-                var m =  document.createTextNode(datos_materia[1]);
-                materia.appendChild(m);
-                materia.id = "materia";
-                
-                var credito = document.createElement("p");
-                var c = document.createTextNode(datos_materia[3]);
-                credito.appendChild(c);
-                credito.id = "creditos"; 
-                
-                clone.appendChild(materia);
-                clone.appendChild(credito);
-                document.getElementById("semestre_"+datos_materia[2]).appendChild(clone);
+                    organizaMaterias(datos_materia);
                 break;
                 case 6:
-                var el = document.querySelector('.materias');
-                var clone = el.cloneNode(false);
-                clone.id = "materia_"+datos_materia[0]; 
-                
-                var materia = document.createElement("p");
-                var m =  document.createTextNode(datos_materia[1]);
-                materia.appendChild(m);
-                materia.id = "materia";
-                
-                var credito = document.createElement("p");
-                var c = document.createTextNode(datos_materia[3]);
-                credito.appendChild(c);
-                credito.id = "creditos"; 
-                
-                clone.appendChild(materia);
-                clone.appendChild(credito);
-                document.getElementById("semestre_"+datos_materia[2]).appendChild(clone);
+                    organizaMaterias(datos_materia);
                 break;
                 
             }
-            
-            console.log(datos_materia[2]);
-            var id = 0;
-            
-            
-            
-        }      
+        }  
+        // borramos el primer div con id 'aclonar'
+        var elem = document.getElementById("aclonar");
+        elem.parentNode.removeChild(elem);    
     });
+}
+
+function organizaMaterias(datos_materia){
+    var el = document.querySelector('.materias');
+    var clone = el.cloneNode(false);
+    clone.id = "materia_"+datos_materia[0]; 
+    
+    var materia = document.createElement("p");
+    var m =  document.createTextNode(datos_materia[1]);
+    materia.appendChild(m);
+    materia.id = "materia";
+    
+    var credito = document.createElement("p");
+    var c = document.createTextNode(datos_materia[3]);
+    credito.appendChild(c);
+    credito.id = "creditos"; 
+    
+    clone.appendChild(materia);
+    clone.appendChild(credito);
+    document.getElementById("semestre_"+datos_materia[2]).appendChild(clone);
+    
 }

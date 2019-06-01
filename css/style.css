@@ -64,11 +64,11 @@ h2, h3, p{
 }
 
 .semestres .materias{
-    width: 300px;
+    width: 320px;
     height: auto;
     padding: 10px;
     background-color: #43A047;
-    border-radius: 25px;
+    border-radius: 5px;
     display: inline-block;
     margin-top: 10px;
 }
