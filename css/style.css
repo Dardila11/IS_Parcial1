@@ -6,15 +6,42 @@ body{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff670f', endColorstr='#ff670f',GradientType=1 );
     
 }
+
+.guia{
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 20px;
+    padding: 15px 45px 15px 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
 .info_centrado {
     position: relative;
     z-index: 1;
     background: #FFFFFF;
     max-width: 360px;
-    margin: 0 auto 100px;
+    margin: 0 auto 20px;
     padding: 45px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.info_centrado #btn_nuevaBusqueda{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: rgb(78, 76, 175);
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
 }
 
 .info_centrado input {
@@ -29,7 +56,7 @@ body{
     font-size: 14px;
 }
 
-.info_centrado button {
+.info_centrado #btn_consultar {
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
@@ -58,9 +85,14 @@ body{
     margin: 0 auto 20px;
 }
 
-h2, h3, p{
+h2, h3, p, img{
     color: black;
     text-align: center; 
+}
+
+img{
+    position: relative;
+    top: 4px;
 }
 
 .semestres .materias{
@@ -81,5 +113,48 @@ h2, h3, p{
 
 .estCodigo p, span{
     color: black;
+    font-weight: bold;
     text-align: center; 
 }
+
+
+
+
+.guia .color-green{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #4CAF50;
+    width: 50%;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    margin-bottom: 10px; 
+}
+
+.guia div{
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}
+
+.guia .color-gray{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: gray;
+    width: 50%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+
+
