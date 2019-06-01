@@ -14,13 +14,13 @@ function nuevo_estudiante($codigo){
     fclose($fp);
 }
 
-function update_estudiante($codEstudiante,$idMateria,$estadoMateria){
-    // abrimos el archivo del estudiante
-    $fp = fopen('../js/'.$codEstudiante.'.json','w');
-    // editamos el id de la materia
-    // le agregamos el nuevo estado
-    // cerramos
-    
+function update_estudiante($idMateria, $codEstudiante, $estadoMateria){
 
+    $archivo = file_get_contents($codEstudiante.'.json');
+    echo $archivo;
+    /* $archivoDecodificado = json_decode($archivo, true);
+    $archivoDecodificado[$idMateria] = $estadoMateria;
+    $json = json_encode($archivoDecodificado);
+    file_put_contents($codEstudiante.'.json',$json); */
 }
 ?>

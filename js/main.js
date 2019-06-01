@@ -1,7 +1,28 @@
+/*function toggleElements(hide) {
+    var x = document.getElementById("info_data");
+    if(hide == true)
+    {
+        x.style.display = 'block';  
+    }
+    else
+    { 
+        img.style.display = 'none';   
+    }
+    hidden = hide;
+}
+
+window.onload = function load(){    
+    toggleElements(false);
+}
+
+var hidden = true; */
 function getInfo(){
+    //hidden = !hidden;
+    //toggleElements(hidden);
     var codigo = document.getElementById("codigo").value;
     $(".estCodigo").load("php/getMaterias.php?codigo="+codigo);
     getAllMaterias(codigo);
+    
 }
 
 function getAllMaterias(codigo){

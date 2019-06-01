@@ -6,35 +6,51 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/organizaMaterias.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <title>Parcial 1</title>
     
-    <input type="text" placeholder="ingrese codigo" name="codigo" id="codigo">
-    <button type="submit" onclick="getInfo()">Buscar</button>
-    
-    <div class="semestre">
-        <h1>SEMESTRE 1</h1>
-        <div class="materia">
-            <p class="mat">Calculo</p>
-            <p>Creditos</p>
-        </div>
+    <div class="info_centrado">
+        <h2>Control de Materias</h2>
         
-        <div class="materia">
-            <p class="mat">Calculo</p>
-            <p>Creditos</p>
-        </div>
+        <h3>Bienvenido al control de materias.</h3>
         
-        <div class="materia">
-            <p class="mat">Calculo</p>
-            <p>Creditos</p>
-        </div>
-        
-        <div class="materia">
-            <p class="mat">Calculo</p>
-            <p>Creditos</p>
+        <p>Aqui puedes llevar un control de las materias que vas culminando</p>
+        <p>Para continuar debes ingresar tu codigo universitario</p>
+        <input type="text" placeholder="codigo" name="codigo" id="codigo">
+        <button id="btn_consultar" type="submit" onclick="infoMaterias()">Consultar Materias</button>
+        <div class="estCodigo">
+            <p>Su codigo es: <span class="txt_codigo" id="txtCodigo"></span></p>
         </div>
     </div>
-    <h3 id="codigo" class="estCodigo"></h3>
+    
+    <div id="info_data">
+        <div id="semestre_1" class="semestres">
+            <h3>Semestre 1</h3>
+            <div id="aclonar" class="materias">
+                <p id="materia">Calculo I</p>
+                <p id="creditos">Creditos</p>
+            </div>
+        </div>
+        <div id="semestre_2" class="semestres">
+                <h3>Semestre 2</h3>
+        </div>
+        <div id="semestre_3" class="semestres">
+                <h3>Semestre 3</h3>
+        </div>
+        <div id="semestre_4" class="semestres">
+                <h3>Semestre 4</h3>
+        </div>
+        <div id="semestre_5" class="semestres">
+                <h3>Semestre 5</h3>
+        </div>
+        <div id="semestre_6" class="semestres">
+                <h3>Semestre 6</h3>
+        </div>
+    </div>
+    
+    
+    
 </head>
 <body>    
 </body>

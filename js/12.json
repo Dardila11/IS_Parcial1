@@ -1,7 +1,7 @@
 [
     {
         "codigo_materia": 101,
-        "estado": false
+        "estado": true
     },
     {
         "codigo_materia": 102,
@@ -41,7 +41,7 @@
     },
     {
         "codigo_materia": 111,
-        "estado": false
+        "estado": true
     },
     {
         "codigo_materia": 112,
@@ -57,7 +57,7 @@
     },
     {
         "codigo_materia": 115,
-        "estado": false
+        "estado": true
     },
     {
         "codigo_materia": 116,
@@ -77,6 +77,10 @@
     },
     {
         "codigo_materia": 120,
+        "estado": false
+    },
+    {
+        "codigo_materia": 121,
         "estado": false
     }
 ]
