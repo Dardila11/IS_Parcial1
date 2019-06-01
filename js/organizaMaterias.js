@@ -1,7 +1,16 @@
 function infoMaterias(){
     var codigo = document.getElementById("codigo").value;
     $(".txt_codigo").load("php/getMaterias.php?codigo="+codigo);
+    stateButton(true);
     buscaMaterias(codigo);
+}
+
+function stateButton(state){
+    if(state == true){
+        $('#btn_consultar').prop('disabled', true);
+        $('#btn_consultar').css('background', 'gray');
+        // activar botton realizar nueva busqueda
+    }
 }
 
 function buscaMaterias(codigo){
@@ -10,7 +19,7 @@ function buscaMaterias(codigo){
         for (let i = 0; i < data.length; i++) {
             var materias = data[i];
             var datos_materia = Object.values(materias)
-            console.log(materias)
+            //console.log(materias)
             semestre = datos_materia[2];
             switch(semestre){
                 case 1:
@@ -61,12 +70,13 @@ function buscaMaterias(codigo){
 function organizaMaterias(datos_materia){
     var el = document.querySelector('.materias');
     var clone = el.cloneNode(false);
-    clone.id = "materia_"+datos_materia[0]; 
-    
+    clone.id = "materia_"+datos_materia[0];
+    clone.addEventListener('click', cambiaEstado); 
+
     var materia = document.createElement("p");
     var m =  document.createTextNode(datos_materia[1]);
     materia.appendChild(m);
-    materia.id = "materia";
+    materia.id = "materia_"+datos_materia[0];
     
     var credito = document.createElement("p");
     var c = document.createTextNode(datos_materia[3]);
@@ -77,4 +87,38 @@ function organizaMaterias(datos_materia){
     clone.appendChild(credito);
     document.getElementById("semestre_"+datos_materia[2]).appendChild(clone);
     
+}
+
+function cambiaEstado(){
+    var idMateria = event.target.id;
+    idMateria = idMateria.substring(8, 11);
+    var codigo = document.getElementById("codigo").value;
+    console.log(codigo);
+    console.log(idMateria); 
+    if(this.style.backgroundColor == 'gray'){
+        this.style.backgroundColor = '#43A047';
+        /* actualizamos el servidor */
+        estado = false;
+        console.log(estado)
+    }else{
+        this.style.backgroundColor = 'gray';
+        estado = true; 
+        console.log(estado)
+    }
+    var datos = {materia: idMateria, code: codigo, state: estado};
+    //var datosJson = JSON.stringify(datos);
+    //console.log(datosJson);
+    
+    // enviamos la actualizacion al servidor
+    $.ajax({
+        type: "POST",   
+        //contentType: "application/json; charset=utf-8",
+        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+        url: "php/updateMaterias.php",
+        //data: "{'codigoMateria':'" + idMateria+ "', 'codigoEstudiante':'" + codigo+ "', 'estado':'" + estado+ "'}",
+        data: {myData:datos},
+        success: function (result) {
+             console.log(result);
+        }
+   });
 }
