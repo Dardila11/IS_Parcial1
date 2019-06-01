@@ -57,7 +57,7 @@
     },
     {
         "codigo_materia": 115,
-        "estado": false
+        "estado": true
     },
     {
         "codigo_materia": 116,
@@ -65,7 +65,7 @@
     },
     {
         "codigo_materia": 117,
-        "estado": false
+        "estado": true
     },
     {
         "codigo_materia": 118,
@@ -73,7 +73,7 @@
     },
     {
         "codigo_materia": 119,
-        "estado": false
+        "estado": true
     },
     {
         "codigo_materia": 120,

@@ -78,3 +78,8 @@ h2, h3, p{
     display: inline;
     margin: 10px;
 }
+
+.estCodigo p, span{
+    color: black;
+    text-align: center; 
+}

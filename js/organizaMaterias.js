@@ -1,24 +1,10 @@
-function buscaMaterias(){
-    // clona elementos
-    
-    /*var el = document.querySelector('.materias');
-    var clone = el.cloneNode(false);
-    clone.id = "materia_101"; 
-    
-    var materia = document.createElement("p");
-    var m =  document.createTextNode("Calculo");
-    materia.appendChild(m);
-    materia.id = "materia";
-    
-    var credito = document.createElement("p");
-    var c = document.createTextNode("3");
-    credito.appendChild(c);
-    credito.id = "creditos";   
-    
-    clone.appendChild(materia);
-    clone.appendChild(credito);
-    document.getElementById("semestre_1").appendChild(clone); */
-    
+function infoMaterias(){
+    var codigo = document.getElementById("codigo").value;
+    $(".txt_codigo").load("php/getMaterias.php?codigo="+codigo);
+    buscaMaterias(codigo);
+}
+
+function buscaMaterias(codigo){
     jQuery.getJSON("js/materias.json", function(data){
         var semestre;
         for (let i = 0; i < data.length; i++) {
@@ -50,7 +36,25 @@ function buscaMaterias(){
         }  
         // borramos el primer div con id 'aclonar'
         var elem = document.getElementById("aclonar");
-        elem.parentNode.removeChild(elem);    
+        elem.parentNode.removeChild(elem);   
+    });
+
+    jQuery.getJSON("js/"+codigo+".json", function(estadoMateria){
+        for (let i = 0; i < estadoMateria.length; i++) {
+            var estado = estadoMateria[i];
+            var info_estado = Object.entries(estado);
+            var idMat = 0;
+            for(const [key,value] of info_estado){
+                if(key == "codigo_materia"){
+                    idMat = value;
+                }
+                if(key == "estado"){
+                    if(value == true){
+                        document.getElementById("materia_"+idMat).style.backgroundColor = 'gray';  
+                    }
+                }
+            }
+        }
     });
 }
 
