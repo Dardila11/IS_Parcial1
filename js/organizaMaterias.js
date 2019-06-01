@@ -17,13 +17,17 @@ function stateButton(state){
         $('#btn_consultar').css('background', 'gray');
         $('#btn_nuevaBusqueda').show();
         $('.guia').show();
-
     }
+}
+/* a veces funciona. TODO: averiguar por qué.
+    no funciona en localhost */
+function reiniciar(){
+    location = location;
 }
 
 function validacion(codigo){
     var valido = false;
-    if(codigo != ""){
+    if(codigo != "" && !isNaN(codigo)){
         valido = true;
     }
     return valido;
