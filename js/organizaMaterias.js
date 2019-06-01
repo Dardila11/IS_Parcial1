@@ -93,29 +93,20 @@ function cambiaEstado(){
     var idMateria = event.target.id;
     idMateria = idMateria.substring(8, 11);
     var codigo = document.getElementById("codigo").value;
-    console.log(codigo);
-    console.log(idMateria); 
     if(this.style.backgroundColor == 'gray'){
         this.style.backgroundColor = '#43A047';
         /* actualizamos el servidor */
         estado = false;
-        console.log(estado)
     }else{
         this.style.backgroundColor = 'gray';
         estado = true; 
-        console.log(estado)
     }
     var datos = {materia: idMateria, code: codigo, state: estado};
-    //var datosJson = JSON.stringify(datos);
-    //console.log(datosJson);
-    
     // enviamos la actualizacion al servidor
     $.ajax({
         type: "POST",   
-        //contentType: "application/json; charset=utf-8",
         contentType: "application/x-www-form-urlencoded; charset=UTF-8",
         url: "php/updateMaterias.php",
-        //data: "{'codigoMateria':'" + idMateria+ "', 'codigoEstudiante':'" + codigo+ "', 'estado':'" + estado+ "'}",
         data: {myData:datos},
         success: function (result) {
              console.log(result);
