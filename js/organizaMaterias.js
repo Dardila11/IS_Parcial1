@@ -56,7 +56,7 @@ function buscaMaterias(codigo){
         elem.parentNode.removeChild(elem);   
     });
     
-    jQuery.getJSON("js/"+codigo+".json", function(estadoMateria){
+    /*jQuery.getJSON("js/"+codigo+".json", function(estadoMateria){
         for (let i = 0; i < estadoMateria.length; i++) {
             var estado = estadoMateria[i];
             info_estado = Object.values(estado);
@@ -66,7 +66,25 @@ function buscaMaterias(codigo){
                 document.getElementById("materia_"+info_estado[0]).style.backgroundColor = 'gray';
             }
         }
-    });
+    });*/
+
+    /* Esto lo cambié porque algunas veces no cambia el estado. sin embargo sigue pasando */
+
+    $.ajax({
+        url: "js/"+codigo+".json",
+        datatype: "json",
+        success: function(estadoMateria){
+            for (let i = 0; i < estadoMateria.length; i++) {
+                var estado = estadoMateria[i];
+                info_estado = Object.values(estado);
+    
+                if(info_estado[1] == true){
+                    console.log(info_estado[1]);
+                    document.getElementById("materia_"+info_estado[0]).style.backgroundColor = 'gray';
+                }
+            }
+        }
+    })
 }
 
 function organizaMaterias(datos_materia){
@@ -113,8 +131,6 @@ function cambiaEstado(){
         contentType: "application/x-www-form-urlencoded; charset=UTF-8",
         url: "php/updateMaterias.php",
         data: {myData:datos},
-        
-        
         complete: function (result) {
             var snd = new Audio("../snd/ding.mp3"); 
             snd.play();
