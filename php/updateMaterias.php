@@ -1,6 +1,5 @@
 <?php
 include_once '../php/materia.php';
-//include_once '../php/saveest_materias.php';
 include_once __DIR__.'/estMateria.php';
 
 if(isset($_POST["myData"])){
@@ -12,7 +11,6 @@ if(isset($_POST["myData"])){
     //actualizamos el archivo del estudiante
 
     $filename = '../js/'.$array['materia'].'.json';
-    //update_estudiante($array['materia'],$array['code'], $array['state']);
     $valor = false;
     if($array['state'] == "false"){
         $valor = false;
@@ -21,8 +19,6 @@ if(isset($_POST["myData"])){
     }
     $archivo = file_get_contents('../js/'.$array['code'].'.json');
     $archivoDecodificado = json_decode($archivo, true);
-    //$archivoDecodificado[$array['materia']] = $array['state'];
-    //$archivoDecodificado[0]["estado"]
     foreach ($archivoDecodificado as $key => $entry) {
         if ($entry['codigo_materia'] == $array['materia']) {
             $archivoDecodificado[$key]['estado'] = $valor;

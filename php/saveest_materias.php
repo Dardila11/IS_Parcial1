@@ -13,14 +13,4 @@ function nuevo_estudiante($codigo){
     fwrite($fp,$materias_json);
     fclose($fp);
 }
-
-function update_estudiante($idMateria, $codEstudiante, $estadoMateria){
-
-    $archivo = file_get_contents($codEstudiante.'.json');
-    echo $archivo;
-    /* $archivoDecodificado = json_decode($archivo, true);
-    $archivoDecodificado[$idMateria] = $estadoMateria;
-    $json = json_encode($archivoDecodificado);
-    file_put_contents($codEstudiante.'.json',$json); */
-}
 ?>
