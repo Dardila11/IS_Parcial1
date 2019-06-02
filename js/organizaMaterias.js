@@ -113,8 +113,14 @@ function cambiaEstado(){
         contentType: "application/x-www-form-urlencoded; charset=UTF-8",
         url: "php/updateMaterias.php",
         data: {myData:datos},
-        success: function (result) {
-            console.log(result);
-        }
+        
+        
+        complete: function (result) {
+            var snd = new Audio("../snd/ding.mp3"); 
+            snd.play();
+        },
+        
+        
+
     });
 }
