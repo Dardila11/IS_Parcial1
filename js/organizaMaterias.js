@@ -7,7 +7,7 @@ function infoMaterias(){
         buscaMaterias(codigo);
     }
     else{
-        alert("digita tu codigo");
+        alert("digita tu codigo, recuerda que debe ser un numero");
     }
 }
 
@@ -45,32 +45,11 @@ window.onload = function load(){
 
 function buscaMaterias(codigo){
     jQuery.getJSON("js/materias.json", function(data){
-        var semestre;
         for (let i = 0; i < data.length; i++) {
             var materias = data[i];
             var datos_materia = Object.values(materias)
-            semestre = datos_materia[2];
-            switch(semestre){
-                case 1:
-                organizaMaterias(datos_materia);
-                break;
-                case 2:
-                organizaMaterias(datos_materia);
-                break;
-                case 3:
-                organizaMaterias(datos_materia);
-                break;
-                case 4:
-                organizaMaterias(datos_materia);
-                break;
-                case 5:
-                organizaMaterias(datos_materia);
-                break;
-                case 6:
-                organizaMaterias(datos_materia);
-                break;
-                
-            }
+            //semestre = datos_materia[2];
+            organizaMaterias(datos_materia);
         }  
         /* borramos el primer div con id 'aclonar' */
         var elem = document.getElementById("aclonar");
