@@ -9,7 +9,7 @@
     },
     {
         "codigo_materia": 103,
-        "estado": true
+        "estado": false
     },
     {
         "codigo_materia": 104,
@@ -17,7 +17,7 @@
     },
     {
         "codigo_materia": 105,
-        "estado": true
+        "estado": false
     },
     {
         "codigo_materia": 106,
@@ -25,7 +25,7 @@
     },
     {
         "codigo_materia": 107,
-        "estado": true
+        "estado": false
     },
     {
         "codigo_materia": 108,
@@ -33,7 +33,7 @@
     },
     {
         "codigo_materia": 109,
-        "estado": true
+        "estado": false
     },
     {
         "codigo_materia": 110,

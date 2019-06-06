@@ -8,8 +8,8 @@ if(isset($_GET["codigo"])){
     if(file_exists($filename)){
         echo $est_codigo;
     }else{
-        echo $est_codigo;
         nuevo_estudiante($est_codigo);  
+        echo $est_codigo;
     }
     
 }

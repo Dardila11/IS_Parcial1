@@ -21,9 +21,30 @@ function stateButton(state){
 }
 /* a veces funciona. TODO: averiguar por qué.
     no funciona en localhost */
-function reiniciar(){
-    location = location;
-}
+/* function reiniciar(){  
+    location = location  
+} */
+
+$(document).ready(function(){
+    $("#btn_nuevaBusqueda").click(function(event){
+        location = location;
+    });
+});
+
+$(document).ready(function(){
+    $("#btn_consultar").click(function(event){
+        var codigo = document.getElementById("codigo").value;
+        if(validacion(codigo)){
+            $('.estCodigo').show();
+            $(".txt_codigo").load("php/getMaterias.php?codigo="+codigo);
+            stateButton(true);
+            $('#info_data').show();
+            buscaMaterias(codigo);
+        }else{
+            alert("hubo un problema");
+        }
+    });
+});
 
 function validacion(codigo){
     var valido = false;
@@ -40,37 +61,43 @@ window.onload = function load(){
     $('#btn_nuevaBusqueda').hide();
     $('#info_data').hide();
     $('.guia').hide();
+    $('.estCodigo').hide();
 
 }
 
 function buscaMaterias(codigo){
-    jQuery.getJSON("js/materias.json", function(data){
-        for (let i = 0; i < data.length; i++) {
-            var materias = data[i];
-            var datos_materia = Object.values(materias)
-            //semestre = datos_materia[2];
-            organizaMaterias(datos_materia);
-        }  
-        /* borramos el primer div con id 'aclonar' */
-        var elem = document.getElementById("aclonar");
-        elem.parentNode.removeChild(elem);   
-    });
-    
-    /*jQuery.getJSON("js/"+codigo+".json", function(estadoMateria){
-        for (let i = 0; i < estadoMateria.length; i++) {
-            var estado = estadoMateria[i];
-            info_estado = Object.values(estado);
 
-            if(info_estado[1] == true){
-                console.log(info_estado[1]);
-                document.getElementById("materia_"+info_estado[0]).style.backgroundColor = 'gray';
+    $(document).ready(function(){
+        jQuery.getJSON("js/materias.json", function(data){
+            for (let i = 0; i < data.length; i++) {
+                var materias = data[i];
+                var datos_materia = Object.values(materias)
+                //semestre = datos_materia[2];
+                organizaMaterias(datos_materia);
+            }  
+            // borramos el primer div con id 'aclonar' 
+            var elem = document.getElementById("aclonar");
+            elem.parentNode.removeChild(elem);   
+        });
+        
+    });  
+    
+    $(document).ready(function(){
+        jQuery.getJSON("js/"+codigo+".json", function(estadoMateria){
+            for (let i = 0; i < estadoMateria.length; i++) {
+                var estado = estadoMateria[i];
+                info_estado = Object.values(estado);
+
+                if(info_estado[1] == true){
+                    console.log(info_estado[1]);
+                    document.getElementById("materia_"+info_estado[0]).style.backgroundColor = 'gray';
+                }
             }
-        }
-    });*/
+        });
+    }); 
 
     /* Esto lo cambié porque algunas veces no cambia el estado. sin embargo sigue pasando */
-
-    $.ajax({
+    /*$.ajax({
         url: "js/"+codigo+".json",
         datatype: "json",
         success: function(estadoMateria){
@@ -84,7 +111,13 @@ function buscaMaterias(codigo){
                 }
             }
         }
-    })
+    }); */
+
+    
+    
+
+    
+    
 }
 
 function organizaMaterias(datos_materia){
