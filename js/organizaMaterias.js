@@ -1,30 +1,18 @@
-function infoMaterias(){
-    var codigo = document.getElementById("codigo").value;
-    if(validacion(codigo)){
-        $(".txt_codigo").load("php/getMaterias.php?codigo="+codigo);
-        stateButton(true);
-        $('#info_data').show();
-        buscaMaterias(codigo);
-    }
-    else{
-        alert("digita tu codigo, recuerda que debe ser un numero");
-    }
-}
-
 function stateButton(state){
     if(state == true){
+        $('#info_data').show();
         $('#btn_consultar').prop('disabled', true);
         $('#btn_consultar').css('background', 'gray');
         $('#btn_nuevaBusqueda').show();
         $('.guia').show();
     }
+    else{
+        $('#btn_nuevaBusqueda').hide();
+        $('#info_data').hide();
+        $('.guia').hide();
+        $('.estCodigo').hide();
+    }
 }
-/* a veces funciona. TODO: averiguar por qué.
-    no funciona en localhost */
-/* function reiniciar(){  
-    location = location  
-} */
-
 $(document).ready(function(){
     $("#btn_nuevaBusqueda").click(function(event){
         location = location;
@@ -41,15 +29,15 @@ $(document).ready(function(){
             $('#info_data').show();
             buscaMaterias(codigo);
         }else{
-            alert("hubo un problema");
+            alert("digita tu codigo, recuerda que debe ser un numero");
         }
     });
 });
 
 function validacion(codigo){
-    var valido = false;
-    if(codigo != "" && !isNaN(codigo)){
-        valido = true;
+    var valido = true;
+    if(codigo == "" || isNaN(codigo)){
+        valido = false;
     }
     return valido;
 }
@@ -57,17 +45,13 @@ function validacion(codigo){
 
 
 window.onload = function load(){    
-    /* escondemos el boton de 'nueva busqueda' */
-    $('#btn_nuevaBusqueda').hide();
-    $('#info_data').hide();
-    $('.guia').hide();
-    $('.estCodigo').hide();
-
+    stateButton(false);
 }
 
 function buscaMaterias(codigo){
 
-    $(document).ready(function(){
+    function getMaterias(){
+        $(document).ready(function(){
         jQuery.getJSON("js/materias.json", function(data){
             for (let i = 0; i < data.length; i++) {
                 var materias = data[i];
@@ -80,44 +64,26 @@ function buscaMaterias(codigo){
             elem.parentNode.removeChild(elem);   
         });
         
-    });  
-    
-    $(document).ready(function(){
-        jQuery.getJSON("js/"+codigo+".json", function(estadoMateria){
-            for (let i = 0; i < estadoMateria.length; i++) {
-                var estado = estadoMateria[i];
-                info_estado = Object.values(estado);
-
-                if(info_estado[1] == true){
-                    console.log(info_estado[1]);
-                    document.getElementById("materia_"+info_estado[0]).style.backgroundColor = 'gray';
-                }
-            }
-        });
     }); 
-
-    /* Esto lo cambié porque algunas veces no cambia el estado. sin embargo sigue pasando */
-    /*$.ajax({
-        url: "js/"+codigo+".json",
-        datatype: "json",
-        success: function(estadoMateria){
-            for (let i = 0; i < estadoMateria.length; i++) {
-                var estado = estadoMateria[i];
-                info_estado = Object.values(estado);
+    } 
     
-                if(info_estado[1] == true){
-                    console.log(info_estado[1]);
-                    document.getElementById("materia_"+info_estado[0]).style.backgroundColor = 'gray';
+    function getEstados(){
+        $(document).ready(function(){
+            jQuery.getJSON("js/"+codigo+".json", function(estadoMateria){
+                for (let i = 0; i < estadoMateria.length; i++) {
+                    var estado = estadoMateria[i];
+                    info_estado = Object.values(estado);
+    
+                    if(info_estado[1] == true){
+                        console.log(info_estado[1]);
+                        document.getElementById("materia_"+info_estado[0]).style.backgroundColor = 'gray';
+                    }
                 }
-            }
-        }
-    }); */
-
+            });
+        }); 
+    } 
     
-    
-
-    
-    
+    $.when(getMaterias()).then(getEstados());
 }
 
 function organizaMaterias(datos_materia){
@@ -141,7 +107,7 @@ function organizaMaterias(datos_materia){
     
     clone.appendChild(materia);
     clone.appendChild(credito);
-    clone.appendChild(cloneStar)
+    clone.appendChild(cloneStar);
     document.getElementById("semestre_"+datos_materia[2]).appendChild(clone);
     
 }
@@ -168,8 +134,5 @@ function cambiaEstado(){
             var snd = new Audio("../snd/ding.mp3"); 
             snd.play();
         },
-        
-        
-
     });
 }
